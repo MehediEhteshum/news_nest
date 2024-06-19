@@ -1,7 +1,9 @@
 import { ArticleApiResponse } from "./types/index";
 import { ArticleEntity } from "../../domain_layer/entities/ArticleEntity";
+import { v4 as uuidv4 } from "uuid";
 
 export class ArticleModel implements ArticleEntity {
+  id: string;
   sourceId: string;
   sourceName: string;
   author: string;
@@ -14,6 +16,7 @@ export class ArticleModel implements ArticleEntity {
   isFree: boolean;
 
   constructor(articleApiResponse: ArticleApiResponse) {
+    this.id = uuidv4();
     this.sourceId = articleApiResponse.source.id ?? "Unknown Id";
     this.sourceName = articleApiResponse.source.name ?? "Unnamed";
     this.author = articleApiResponse.author ?? "Anonymous";

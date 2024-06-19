@@ -1,4 +1,5 @@
 export interface ArticleEntity {
+  id: string;
   sourceId: string;
   sourceName: string;
   author: string;
