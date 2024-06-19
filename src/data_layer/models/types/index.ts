@@ -3,7 +3,7 @@ export type Source = {
   name: string | null;
 };
 
-export type ArticleApiResponse = {
+export type ArticleApiData = {
   source: Source;
   author: string | null;
   title: string | null;
@@ -14,8 +14,8 @@ export type ArticleApiResponse = {
   content: string | null;
 };
 
-export type ApiResponse = {
+export type ApiData = {
   status: string | null;
   totalResults: number | null;
-  articles: ArticleApiResponse[];
+  articles: ArticleApiData[];
 };
