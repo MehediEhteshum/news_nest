@@ -1,7 +1,8 @@
 import { apiUrl } from "../../../utils/api_url";
 import { ApiData } from "../../models/types";
+import { INewsApiService } from "./INewsApiService";
 
-export class NewsApiService {
+export class NewsApiService implements INewsApiService {
   async getRemoteNewsApiData(): Promise<ApiData> {
     try {
       const response: Response = await fetch(apiUrl);

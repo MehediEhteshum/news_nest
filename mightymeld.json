@@ -3,7 +3,7 @@
   "include": ["src", "prefabs"],
   "web_server_url": "http://localhost:5173",
   "editor": "url:vscode://file/%FILENAME:%LINE:%COLUMN",
-  "run": "npm run dev",
+  "run": "bun run dev",
   "prefab_dir": "prefabs",
   "tailwind": true
 }
