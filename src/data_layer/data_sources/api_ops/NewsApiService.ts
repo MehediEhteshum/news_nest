@@ -8,7 +8,7 @@ export class NewsApiService implements INewsApiService {
       const response: Response = await fetch(apiUrl);
 
       if (!response.ok) {
-        console.error(`Error fetching data from News API: ${response.status}`);
+        console.error(`News API Service Error: ${response.status}`);
         throw new Error(
           `Error fetching data from News API: ${response.status}`
         );
