@@ -12,17 +12,12 @@ export class ArticleRepo implements IArticleRepo {
 
   // Source API
   async getRemoteNewsArticles(): Promise<ArticleModel[]> {
-    try {
-      const newsApiData: ApiData =
-        await this._newsApiService.getRemoteNewsApiData();
-      const articles: ArticleModel[] = newsApiData.articles.map((article) => {
-        return new ArticleModel(article);
-      });
-      return articles;
-    } catch (error) {
-      console.error("ArticleRepo Error:" + error);
-      throw error;
-    }
+    const newsApiData: ApiData =
+      await this._newsApiService.getRemoteNewsApiData();
+    const articles: ArticleModel[] = newsApiData.articles.map((article) => {
+      return new ArticleModel(article);
+    });
+    return articles;
   }
 
   // DB operations
