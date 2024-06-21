@@ -3,13 +3,15 @@ import { IArticleRepo } from "../../domain_layer/repository_interfaces/IArticleR
 import { ArticleModel } from "../models/ArticleModel";
 import { ApiData } from "../models/types";
 import { inject, injectable } from "inversify";
-import { TYPES } from "../../utils/Types";
+import { SYMBOLS } from "../../utils/Symbols";
 
 @injectable()
 export class ArticleRepo implements IArticleRepo {
   private _newsApiService: INewsApiService;
 
-  constructor(@inject(TYPES.INewsApiService) newsApiService: INewsApiService) {
+  constructor(
+    @inject(SYMBOLS.INewsApiService) newsApiService: INewsApiService
+  ) {
     this._newsApiService = newsApiService;
   }
 
