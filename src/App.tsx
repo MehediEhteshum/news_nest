@@ -1,5 +1,5 @@
 import "./App.css";
-import { apiUrl } from "./utils/api_url";
+import { apiUrl } from "./utils/ApiUrl";
 
 function App() {
   return (

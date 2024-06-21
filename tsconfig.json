@@ -4,6 +4,7 @@
     "useDefineForClassFields": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["reflect-metadata"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -14,6 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
     /* Linting */
     "strict": true,

@@ -1,7 +1,9 @@
-import { apiUrl } from "../../../utils/api_url";
+import { injectable } from "inversify";
+import { apiUrl } from "../../../utils/ApiUrl";
 import { ApiData } from "../../models/types";
 import { INewsApiService } from "./INewsApiService";
 
+@injectable()
 export class NewsApiService implements INewsApiService {
   async getRemoteNewsApiData(): Promise<ApiData> {
     try {

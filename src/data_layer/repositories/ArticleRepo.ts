@@ -1,12 +1,15 @@
-import { INewsApiService } from "./../data_sources/api_ops/INewsApiService";
+import type { INewsApiService } from "./../data_sources/api_ops/INewsApiService";
 import { IArticleRepo } from "../../domain_layer/repository_interfaces/IArticleRepo";
 import { ArticleModel } from "../models/ArticleModel";
 import { ApiData } from "../models/types";
+import { inject, injectable } from "inversify";
+import { TYPES } from "../../utils/Types";
 
+@injectable()
 export class ArticleRepo implements IArticleRepo {
   private _newsApiService: INewsApiService;
 
-  constructor(newsApiService: INewsApiService) {
+  constructor(@inject(TYPES.INewsApiService) newsApiService: INewsApiService) {
     this._newsApiService = newsApiService;
   }
 
