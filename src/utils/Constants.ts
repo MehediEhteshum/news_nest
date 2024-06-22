@@ -1,4 +1,4 @@
-export const logoSrc: string = "/src/presentation_layer/assets/logo.png";
+export const logoSrc: string = "/public/images/logo.png";
 
 export const texts = {
   brand_name: "NewsNest",
