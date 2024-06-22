@@ -19,6 +19,13 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 
+    // shadcn
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // shadcn
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
