@@ -8,7 +8,7 @@ import {
 } from "../shadcn/ui/dropdown-menu";
 import { Button } from "../shadcn/ui/button";
 
-export function ModeToggle() {
+export const ModeToggle: React.FC = () => {
   const { setTheme } = useTheme();
 
   return (
@@ -33,4 +33,4 @@ export function ModeToggle() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};

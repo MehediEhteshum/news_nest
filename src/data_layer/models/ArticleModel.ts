@@ -1,6 +1,5 @@
 import { ArticleApiData } from "./types/index";
 import { ArticleEntity } from "../../domain_layer/entities/ArticleEntity";
-import { v4 as uuidv4 } from "uuid";
 
 export class ArticleModel implements ArticleEntity {
   id: string;
@@ -16,7 +15,6 @@ export class ArticleModel implements ArticleEntity {
   isFree: boolean;
 
   constructor(articleApiData: ArticleApiData) {
-    this.id = uuidv4();
     this.sourceId = articleApiData.source.id ?? "Unknown Id";
     this.sourceName = articleApiData.source.name ?? "Unnamed";
     this.author = articleApiData.author ?? "Anonymous";
@@ -29,5 +27,6 @@ export class ArticleModel implements ArticleEntity {
       : new Date();
     this.content = articleApiData.content ?? "No content";
     this.isFree = Math.random() < 0.3;
+    this.id = articleApiData.url ?? this.author + "-" + this.title;
   }
 }

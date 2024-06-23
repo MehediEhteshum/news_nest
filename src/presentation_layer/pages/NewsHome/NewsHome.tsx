@@ -1,3 +1,4 @@
+import PageNavButtons from "@/presentation_layer/components/molecules/PageNavButtons";
 import { ModeToggle } from "@/presentation_layer/components/molecules/ModeToggle";
 import Page from "@/presentation_layer/components/molecules/Page";
 import { bgColors, logoSrc, texts } from "@/utils/Constants";
@@ -9,12 +10,7 @@ const NewsHome: React.FC = () => {
       backgroundColor={bgColors.bg_lime_600}
       brandName={texts.brand_name}
       pageTitle={texts.home_page_title}
-      pageButtons={
-        <>
-          <div className="w-10 h-10 bg-red-500">home</div>
-          <div className="w-10 h-10 bg-blue-500">archive</div>
-        </>
-      }
+      pageButtons={<PageNavButtons />}
       modeToggle={<ModeToggle />}
       burgerMenu={<div className="w-10 h-10 bg-blue-500">login</div>}
       logoSrc={logoSrc}

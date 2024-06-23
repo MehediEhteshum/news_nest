@@ -13,3 +13,15 @@ export const bgColors = {
   bg_rose_600: "bg-rose-600",
   bg_pink_600: "bg-pink-600",
 };
+
+export const routes = {
+  home: "/",
+  news_archive: "/news-archive",
+  news_detail: "/news/:id",
+};
+
+export const pageNavButtonLabels = {
+  home: "HomeNavButton",
+  news_archive: "ArchiveNavButton",
+  news_detail: "NewsDetailNavButton",
+};
