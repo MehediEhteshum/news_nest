@@ -9,6 +9,8 @@ interface PageProps {
   brandName?: string;
   pageTitle?: string;
   headerChildren?: ReactNode;
+  themeButton?: ReactNode;
+  burgerMenu?: ReactNode;
   footerChildren?: ReactNode;
   footerCustomText?: string;
 }
@@ -20,6 +22,8 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   brandName,
   pageTitle,
   headerChildren,
+  themeButton,
+  burgerMenu,
   footerChildren,
   footerCustomText,
 }) => {
@@ -30,6 +34,8 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
         logoSrc={logoSrc}
         brandName={brandName}
         pageTitle={pageTitle}
+        themeButton={themeButton}
+        burgerMenu={burgerMenu}
       >
         {headerChildren}
       </Header>

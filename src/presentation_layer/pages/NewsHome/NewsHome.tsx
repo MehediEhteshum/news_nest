@@ -10,15 +10,8 @@ const NewsHome: React.FC = () => {
       pageTitle={texts.home_page_title}
       logoSrc={logoSrc}
       footerCustomText={texts.copyright_text}
-      headerChildren={
-        <>
-          <div className="w-10 h-10 bg-red-500"></div>
-          <div className="w-10 h-10 bg-blue-500"></div>
-          <div className="w-10 h-10 bg-green-500"></div>
-          <div className="w-10 h-10 bg-pink-500"></div>
-          <div className="w-10 h-10 bg-yellow-500"></div>
-        </>
-      }
+      themeButton={<div className="w-10 h-10 bg-red-500">theme</div>}
+      burgerMenu={<div className="w-10 h-10 bg-blue-500">burger</div>}
     >
       <div>NewsHome</div>
     </Page>

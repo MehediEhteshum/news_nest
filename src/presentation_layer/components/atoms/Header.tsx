@@ -1,10 +1,12 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 
 interface HeaderProps {
   backgroundColor?: string;
   logoSrc?: string;
   brandName?: string;
   pageTitle?: string;
+  themeButton?: ReactNode;
+  burgerMenu?: ReactNode;
 }
 
 const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
@@ -13,6 +15,8 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   logoSrc,
   brandName,
   pageTitle,
+  themeButton,
+  burgerMenu,
 }) => {
   return (
     <header className={`${backgroundColor}`}>
@@ -34,10 +38,10 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
         <div className="bg-pink-500 text-center items-center absolute right-1/2 translate-x-1/2">
           <span className=" text-xl md:text-2xl font-bold">{pageTitle}</span>
         </div>
-        <div className="bg-sky-500 hidden sm:flex items-center">{children}</div>
-        <div className="bg-white items-center sm:hidden">
-          {/* Hamburger */}
-          <button className="w-6 h-6">burger</button>
+        <div className="bg-sky-500 flex items-center">
+          {children}
+          {themeButton}
+          {burgerMenu}
         </div>
       </div>
     </header>
