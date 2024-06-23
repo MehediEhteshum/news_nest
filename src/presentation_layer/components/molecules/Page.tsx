@@ -6,7 +6,8 @@ import Footer from "../atoms/Footer";
 interface PageProps {
   backgroundColor?: string;
   logoSrc?: string;
-  headerTitle?: string;
+  brandName?: string;
+  pageTitle?: string;
   headerChildren?: ReactNode;
   footerChildren?: ReactNode;
   footerCustomText?: string;
@@ -16,7 +17,8 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   children,
   backgroundColor,
   logoSrc,
-  headerTitle,
+  brandName,
+  pageTitle,
   headerChildren,
   footerChildren,
   footerCustomText,
@@ -26,7 +28,8 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
       <Header
         backgroundColor={backgroundColor}
         logoSrc={logoSrc}
-        headerTitle={headerTitle}
+        brandName={brandName}
+        pageTitle={pageTitle}
       >
         {headerChildren}
       </Header>
