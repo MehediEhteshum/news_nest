@@ -5,8 +5,9 @@ interface HeaderProps {
   logoSrc?: string;
   brandName?: string;
   pageTitle?: string;
+  pageButtons?: ReactNode;
   themeButton?: ReactNode;
-  burgerMenu?: ReactNode;
+  otherButtons?: ReactNode;
 }
 
 const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
@@ -15,33 +16,33 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   logoSrc,
   brandName,
   pageTitle,
+  pageButtons,
   themeButton,
-  burgerMenu,
+  otherButtons,
 }) => {
   return (
     <header className={`${backgroundColor}`}>
       <div className="px-4 py-2 items-center flex justify-between">
-        <div className="bg-gray-500 items-center md:flex">
-          <div className="bg-pink-500">
-            {logoSrc && (
-              <img
-                src={logoSrc}
-                alt="Logo"
-                className="w-12 md:w-16 translate-x-3 md:translate-x-0"
-              />
-            )}
-          </div>
-          <div className="bg-sky-500 md:ml-2 text-md md:text-xl font-bold">
+        <div className="items-center md:flex">
+          {logoSrc && (
+            <img
+              src={logoSrc}
+              alt="Logo"
+              className="w-12 md:w-16 translate-x-3 md:translate-x-0"
+            />
+          )}
+          <span className="md:ml-2 text-lg md:text-xl font-bold">
             {brandName}
-          </div>
+          </span>
         </div>
-        <div className="bg-pink-500 text-center items-center absolute right-1/2 translate-x-1/2">
-          <span className=" text-xl md:text-2xl font-bold">{pageTitle}</span>
+        <div className="items-center absolute right-1/2 translate-x-1/2">
+          <span className="text-md md:text-lg font-bold">{pageTitle}</span>
+          <div className="flex items-center justify-center">{pageButtons}</div>
         </div>
-        <div className="bg-sky-500 flex items-center">
+        <div className="flex items-center">
           {children}
           {themeButton}
-          {burgerMenu}
+          {otherButtons}
         </div>
       </div>
     </header>

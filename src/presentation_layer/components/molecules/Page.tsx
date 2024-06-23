@@ -8,6 +8,7 @@ interface PageProps {
   logoSrc?: string;
   brandName?: string;
   pageTitle?: string;
+  pageButtons?: ReactNode;
   headerChildren?: ReactNode;
   themeButton?: ReactNode;
   burgerMenu?: ReactNode;
@@ -21,6 +22,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   logoSrc,
   brandName,
   pageTitle,
+  pageButtons,
   headerChildren,
   themeButton,
   burgerMenu,
@@ -34,8 +36,9 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
         logoSrc={logoSrc}
         brandName={brandName}
         pageTitle={pageTitle}
+        pageButtons={pageButtons}
         themeButton={themeButton}
-        burgerMenu={burgerMenu}
+        otherButtons={burgerMenu}
       >
         {headerChildren}
       </Header>

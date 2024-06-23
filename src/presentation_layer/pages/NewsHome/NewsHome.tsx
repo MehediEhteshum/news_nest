@@ -8,10 +8,16 @@ const NewsHome: React.FC = () => {
       backgroundColor={bgColors.bg_lime_600}
       brandName={texts.brand_name}
       pageTitle={texts.home_page_title}
+      pageButtons={
+        <>
+          <div className="w-10 h-10 bg-red-500">home</div>
+          <div className="w-10 h-10 bg-blue-500">archive</div>
+        </>
+      }
+      themeButton={<div className="w-10 h-10 bg-red-500">theme</div>}
+      burgerMenu={<div className="w-10 h-10 bg-blue-500">login</div>}
       logoSrc={logoSrc}
       footerCustomText={texts.copyright_text}
-      themeButton={<div className="w-10 h-10 bg-red-500">theme</div>}
-      burgerMenu={<div className="w-10 h-10 bg-blue-500">burger</div>}
     >
       <div>NewsHome</div>
     </Page>
