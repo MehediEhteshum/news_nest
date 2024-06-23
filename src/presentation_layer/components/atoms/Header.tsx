@@ -6,7 +6,7 @@ interface HeaderProps {
   brandName?: string;
   pageTitle?: string;
   pageButtons?: ReactNode;
-  themeButton?: ReactNode;
+  modeToggle?: ReactNode;
   otherButtons?: ReactNode;
 }
 
@@ -17,7 +17,7 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   brandName,
   pageTitle,
   pageButtons,
-  themeButton,
+  modeToggle,
   otherButtons,
 }) => {
   return (
@@ -41,8 +41,8 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
         </div>
         <div className="flex items-center">
           {children}
-          {themeButton}
-          {otherButtons}
+          <span className="m-1">{modeToggle}</span>
+          <span className="m-1">{otherButtons}</span>
         </div>
       </div>
     </header>

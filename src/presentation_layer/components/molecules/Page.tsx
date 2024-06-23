@@ -10,7 +10,7 @@ interface PageProps {
   pageTitle?: string;
   pageButtons?: ReactNode;
   headerChildren?: ReactNode;
-  themeButton?: ReactNode;
+  modeToggle?: ReactNode;
   burgerMenu?: ReactNode;
   footerChildren?: ReactNode;
   footerCustomText?: string;
@@ -24,7 +24,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   pageTitle,
   pageButtons,
   headerChildren,
-  themeButton,
+  modeToggle,
   burgerMenu,
   footerChildren,
   footerCustomText,
@@ -37,7 +37,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
         brandName={brandName}
         pageTitle={pageTitle}
         pageButtons={pageButtons}
-        themeButton={themeButton}
+        modeToggle={modeToggle}
         otherButtons={burgerMenu}
       >
         {headerChildren}
