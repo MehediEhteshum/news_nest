@@ -1,4 +1,5 @@
 import { Container } from "inversify";
+import "reflect-metadata";
 import { INewsApiService } from "../data_layer/data_sources/api_ops/INewsApiService";
 import { NewsApiService } from "../data_layer/data_sources/api_ops/NewsApiService";
 import { SYMBOLS } from "./Symbols";
