@@ -14,6 +14,7 @@ interface PageProps {
   otherButtons?: ReactNode;
   footerChildren?: ReactNode;
   footerCustomText?: string;
+  footerCustomCssClasses?: string;
 }
 
 const Page: React.FC<PropsWithChildren<PageProps>> = ({
@@ -28,6 +29,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   otherButtons,
   footerChildren,
   footerCustomText,
+  footerCustomCssClasses,
 }) => {
   return (
     <div className="min-h-screen flex flex-col">
@@ -44,7 +46,11 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
       </Header>
       <Content>{children}</Content>
       {(footerChildren || footerCustomText) && (
-        <Footer backgroundColor={backgroundColor} customText={footerCustomText}>
+        <Footer
+          backgroundColor={backgroundColor}
+          customText={footerCustomText}
+          customCssClasses={footerCustomCssClasses}
+        >
           {footerChildren}
         </Footer>
       )}

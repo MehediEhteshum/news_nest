@@ -24,6 +24,7 @@ const RootPage: React.FC = () => {
       }
       logoSrc={logoSrc}
       footerCustomText={texts.copyrightText}
+      footerCustomCssClasses="p-2 text-center fixed bottom-0 w-full"
     >
       <Routes>
         <Route path={routes.home} element={<NewsHome />} />
