@@ -1,6 +1,6 @@
-import PageNavButtons from "@/presentation_layer/components/molecules/PageNavButtons";
 import { ModeToggle } from "@/presentation_layer/components/molecules/ModeToggle";
 import Page from "@/presentation_layer/components/molecules/Page";
+import PageNavButtons from "@/presentation_layer/components/molecules/PageNavButtons/PageNavButtons";
 import { bgColors, logoSrc, texts } from "@/utils/Constants";
 import React from "react";
 
