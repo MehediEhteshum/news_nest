@@ -3,7 +3,11 @@ export const logoSrc: string = "/images/logo.png";
 export const texts = {
   brandName: "NewsNest",
   copyrightText: "© 2024 NewsNest. All rights reserved.",
+};
+
+export const pageTitles = {
   homePageTitle: "News Home",
+  archivePageTitle: "News Archive",
 };
 
 export const bgColors = {

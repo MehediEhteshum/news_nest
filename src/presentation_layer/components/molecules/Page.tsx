@@ -11,7 +11,7 @@ interface PageProps {
   pageButtons?: ReactNode;
   headerChildren?: ReactNode;
   modeToggle?: ReactNode;
-  burgerMenu?: ReactNode;
+  otherButtons?: ReactNode;
   footerChildren?: ReactNode;
   footerCustomText?: string;
 }
@@ -25,7 +25,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   pageButtons,
   headerChildren,
   modeToggle,
-  burgerMenu,
+  otherButtons,
   footerChildren,
   footerCustomText,
 }) => {
@@ -38,7 +38,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
         pageTitle={pageTitle}
         pageButtons={pageButtons}
         modeToggle={modeToggle}
-        otherButtons={burgerMenu}
+        otherButtons={otherButtons}
       >
         {headerChildren}
       </Header>
