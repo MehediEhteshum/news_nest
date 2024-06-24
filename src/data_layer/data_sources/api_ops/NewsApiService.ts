@@ -8,9 +8,13 @@ import axios, { AxiosResponse } from "axios";
 export class NewsApiService implements INewsApiService {
   async getRemoteNewsApiData(): Promise<ApiData> {
     try {
-      const response: AxiosResponse<ApiData> = await axios.get(apiUrl, {
-        timeout: 15000,
-      });
+      const response: AxiosResponse<ApiData> = await axios
+        .get(apiUrl, {
+          timeout: 15000,
+        })
+        .catch((error) => {
+          throw error;
+        });
 
       if (response.status !== 200) {
         throw new Error(

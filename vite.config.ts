@@ -4,6 +4,11 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    headers: {
+      "x-content-type-options": "nosniff",
+    },
+  },
   plugins: [react()],
   resolve: {
     alias: {
