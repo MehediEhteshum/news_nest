@@ -11,7 +11,9 @@ const Footer: React.FC<PropsWithChildren<FooterProps>> = ({
   backgroundColor = "transparent",
 }) => {
   return (
-    <footer className={`${backgroundColor} text-center py-2`}>
+    <footer
+      className={`${backgroundColor} text-center py-2 fixed bottom-0 w-full`}
+    >
       {children}
       {customText}
     </footer>
