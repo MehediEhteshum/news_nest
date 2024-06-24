@@ -1,11 +1,8 @@
-import { EnhancedStore, configureStore } from "@reduxjs/toolkit";
-import RouteTrackerSlice from "./slices/RouteTrackerSlice";
+// import { EnhancedStore, configureStore } from "@reduxjs/toolkit";
 
-const store: EnhancedStore = configureStore({
-  reducer: {
-    routeTracker: RouteTrackerSlice,
-  },
-});
+// const store: EnhancedStore = configureStore({
+//   reducer: {},
+// });
 
-export default store;
-export type RootState = ReturnType<typeof store.getState>;
+// export default store;
+// export type RootState = ReturnType<typeof store.getState>;

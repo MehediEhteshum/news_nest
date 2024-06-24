@@ -7,14 +7,14 @@ import React from "react";
 const NewsHome: React.FC = () => {
   return (
     <Page
-      backgroundColor={bgColors.bg_lime_600}
-      brandName={texts.brand_name}
-      pageTitle={texts.home_page_title}
+      backgroundColor={bgColors.bgLime600}
+      brandName={texts.brandName}
+      pageTitle={texts.homePageTitle}
       pageButtons={<PageNavButtons />}
       modeToggle={<ModeToggle />}
       burgerMenu={<div className="w-10 h-10 bg-blue-500">login</div>}
       logoSrc={logoSrc}
-      footerCustomText={texts.copyright_text}
+      footerCustomText={texts.copyrightText}
     >
       <div>NewsHome</div>
     </Page>
