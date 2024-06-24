@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     headers: {
       "x-content-type-options": "nosniff",
-      "cache-control": "no-cache",
     },
   },
   plugins: [react()],
