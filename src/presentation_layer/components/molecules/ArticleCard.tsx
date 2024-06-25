@@ -6,22 +6,31 @@ import {
   CardTitle,
 } from "../shadcn/ui/card";
 import { ArticleEntity } from "@/domain_layer/entities/ArticleEntity";
+import { tagBgColors, themeBgColor } from "@/utils/Constants";
 
 const ArticleCard: React.FC<ArticleEntity> = (article) => {
   return (
-    <Card className="relative overflow-visible rounded-2xl">
+    <Card className={`${themeBgColor} relative overflow-visible rounded-2xl`}>
       <div className="aspect-[16/9]">
-        <img src="/images/logo.png" alt="Image" className="object-cover" />
+        <img src={"/images/logo.png"} alt="Image" className="object-cover" />
       </div>
-      <div className="absolute inset-0 flex flex-col top-1/2 bg-slate-900 bg-opacity-65 pt-1 px-2 rounded-b-[inherit]">
-        <CardTitle className="text-sm">
-          {article.title.substring(0, 75)}...
+      <div className="flex flex-col pt-2 px-2 pb-10 gap-2">
+        <CardTitle className="text-md">
+          {article.title.substring(0, 50)}...
         </CardTitle>
-        <CardDescription>{article.author}</CardDescription>
-        <CardFooter className="absolute p-0 pb-2 bottom-0">
-          {article.isFree ? "Free" : "Premium"}
-        </CardFooter>
+        <CardDescription className="text-gray-300">
+          {article.author}
+        </CardDescription>
       </div>
+      <CardFooter className="px-2 pb-2 absolute bottom-0">
+        <div
+          className={`${
+            article.isFree ? tagBgColors.free : tagBgColors.premium
+          } dark:text-white rounded-full px-3 py-1 text-xs`}
+        >
+          {article.isFree ? "Free" : "Premium"}
+        </div>
+      </CardFooter>
     </Card>
   );
 };

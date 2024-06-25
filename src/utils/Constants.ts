@@ -11,11 +11,20 @@ export const pageTitles = {
 };
 
 export const bgColors = {
-  bgSky600: "bg-sky-600",
-  bgLime600: "bg-lime-600",
-  bgSlate600: "bg-slate-600",
-  bgRose600: "bg-rose-600",
-  bgPink600: "bg-pink-600",
+  bgSky: "bg-sky-600 dark:bg-sky-800",
+  bgLime: "bg-lime-600 dark:bg-lime-800",
+  bgSlate: "bg-slate-600 dark:bg-slate-800",
+  bgRose: "bg-rose-600 dark:bg-rose-800",
+  bgPink: "bg-pink-600 dark:bg-pink-800",
+  bgGreen: "bg-green-600 dark:bg-green-800",
+  bgBlue: "bg-blue-600 dark:bg-blue-800",
+};
+
+export const themeBgColor: string = bgColors.bgLime;
+
+export const tagBgColors = {
+  free: "bg-green-500 dark:bg-green-600",
+  premium: "bg-blue-600 dark:bg-blue-700",
 };
 
 export const routes = {

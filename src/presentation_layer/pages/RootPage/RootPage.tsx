@@ -1,7 +1,7 @@
 import { ModeToggle } from "@/presentation_layer/components/molecules/ModeToggle";
 import Page from "@/presentation_layer/components/molecules/Page";
 import PageNavButtons from "@/presentation_layer/components/molecules/PageNavButtons/PageNavButtons";
-import { bgColors, logoSrc, routes, texts } from "@/utils/Constants";
+import { logoSrc, routes, texts, themeBgColor } from "@/utils/Constants";
 import React from "react";
 import NewsHome from "../NewsHome/NewsHome";
 import { Route, Routes } from "react-router-dom";
@@ -14,7 +14,7 @@ const RootPage: React.FC = () => {
 
   return (
     <Page
-      backgroundColor={bgColors.bgLime600}
+      backgroundColor={themeBgColor}
       brandName={texts.brandName}
       pageTitle={pageTitle}
       pageButtons={<PageNavButtons />}
