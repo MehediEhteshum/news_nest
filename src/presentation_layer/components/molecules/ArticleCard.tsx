@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardDescription,
@@ -9,11 +9,24 @@ import { ArticleEntity } from "@/domain_layer/entities/ArticleEntity";
 import { tagBgColors, themeBgColor } from "@/utils/Constants";
 
 const ArticleCard: React.FC<ArticleEntity> = (article) => {
+  const [imgSrc, setImgSrc] = useState(article.urlToImage);
+
   return (
     <Card className={`${themeBgColor} relative overflow-visible rounded-2xl`}>
-      <div className="aspect-[16/9]">
-        <img src={"/images/logo.png"} alt="Image" className="object-cover" />
+      <div className="relative items-center justify-center flex rounded-[inherit]">
+        <img
+          src={imgSrc ?? "/images/logo.png"}
+          onError={() => setImgSrc("/images/logo.png")}
+          alt={"image-" + article.id.slice(0, 5)}
+          className="absolute pt-2 px-2 w-full h-full object-cover blur-sm rounded-[inherit]"
+        />
+        <img
+          src={imgSrc ?? "/images/logo.png"}
+          alt={"image-" + article.id.slice(0, 5)}
+          className="relative sm:h-48 h-32 aspect-[16/9] rounded-[inherit]"
+        />
       </div>
+
       <div className="flex flex-col pt-2 px-2 pb-10 gap-2">
         <CardTitle className="text-md">
           {article.title.substring(0, 50)}...
