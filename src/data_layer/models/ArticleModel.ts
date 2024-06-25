@@ -1,5 +1,7 @@
+import sha1 from "crypto-js/sha1";
 import { ArticleApiData } from "./types/index";
 import { ArticleEntity } from "../../domain_layer/entities/ArticleEntity";
+import { articleDummyDescription } from "@/utils/Constants";
 
 export class ArticleModel implements ArticleEntity {
   id: string;
@@ -19,7 +21,7 @@ export class ArticleModel implements ArticleEntity {
     this.sourceName = articleApiData.source.name ?? "Unnamed";
     this.author = articleApiData.author ?? "Anonymous";
     this.title = articleApiData.title ?? "Untitled";
-    this.description = articleApiData.description ?? "No description";
+    this.description = articleDummyDescription;
     this.url = articleApiData.url;
     this.urlToImage = articleApiData.urlToImage;
     this.publishedAt = articleApiData.publishedAt
@@ -27,6 +29,8 @@ export class ArticleModel implements ArticleEntity {
       : new Date();
     this.content = articleApiData.content ?? "No content";
     this.isFree = Math.random() < 0.3;
-    this.id = articleApiData.url ?? this.author + "-" + this.title;
+    this.id = sha1(
+      articleApiData.url ?? this.author + "-" + this.title
+    ).toString();
   }
 }
