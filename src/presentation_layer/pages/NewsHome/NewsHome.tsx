@@ -7,7 +7,11 @@ const NewsHome: React.FC = () => {
     <div>
       <ul>
         {articles.map((article) => (
-          <li key={article.id}>{article.title}</li>
+          <li key={article.id}>
+            {article.title}
+            <br />
+            <br />
+          </li>
         ))}
       </ul>
     </div>

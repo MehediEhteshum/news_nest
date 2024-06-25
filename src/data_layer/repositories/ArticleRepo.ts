@@ -1,7 +1,7 @@
 import type { INewsApiService } from "./../data_sources/api_ops/INewsApiService";
 import { IArticleRepo } from "../../domain_layer/repository_interfaces/IArticleRepo";
 import { ArticleModel } from "../models/ArticleModel";
-import { ApiData } from "../models/types";
+import { ApiData, ArticleApiData } from "../models/types";
 import { inject, injectable } from "inversify";
 import { SYMBOLS } from "../../utils/Symbols";
 
@@ -19,10 +19,46 @@ export class ArticleRepo implements IArticleRepo {
   async getRemoteNewsArticles(): Promise<ArticleModel[]> {
     const newsApiData: ApiData =
       await this._newsApiService.getRemoteNewsApiData();
-    const articles: ArticleModel[] = newsApiData.articles.map((article) => {
+
+    const uniqueArticles: ArticleApiData[] = this.removeDuplicateArticles(
+      newsApiData.articles
+    );
+
+    const randomArticles: ArticleApiData[] = this.getRandomArticles(
+      uniqueArticles,
+      60
+    );
+
+    const articles: ArticleModel[] = randomArticles.map((article) => {
       return new ArticleModel(article);
     });
+
     return articles;
+  }
+
+  private removeDuplicateArticles(
+    articles: ArticleApiData[]
+  ): ArticleApiData[] {
+    return articles.reduce(
+      (uniqueArticles: ArticleApiData[], article: ArticleApiData) => {
+        if (
+          !uniqueArticles.some(
+            (uniqueArticle) => uniqueArticle.url === article.url
+          )
+        ) {
+          uniqueArticles.push(article);
+        }
+        return uniqueArticles;
+      },
+      []
+    );
+  }
+
+  private getRandomArticles(
+    articles: ArticleApiData[],
+    count: number
+  ): ArticleApiData[] {
+    return articles.sort(() => Math.random() - 0.5).slice(0, count);
   }
 
   // DB operations
