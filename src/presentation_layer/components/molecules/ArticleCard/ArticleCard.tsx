@@ -15,7 +15,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
 
   return (
     <Card
-      className={`${themeBgColor} relative overflow-visible rounded-2xl flex sm:flex-col`}
+      className={`${themeBgColor} relative overflow-visible rounded-2xl flex sm:flex-col hover:scale-105`}
     >
       <ArticleCardImage
         imgSrc={imgSrc}

@@ -10,6 +10,7 @@ type PageProps = {
   pageTitle?: string;
   pageButtons?: ReactNode;
   headerChildren?: ReactNode;
+  headerNavHandler?: () => void;
   modeToggle?: ReactNode;
   otherButtons?: ReactNode;
   footerChildren?: ReactNode;
@@ -25,6 +26,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
   pageTitle,
   pageButtons,
   headerChildren,
+  headerNavHandler,
   modeToggle,
   otherButtons,
   footerChildren,
@@ -41,6 +43,7 @@ const Page: React.FC<PropsWithChildren<PageProps>> = ({
         pageButtons={pageButtons}
         modeToggle={modeToggle}
         otherButtons={otherButtons}
+        navigationHandler={headerNavHandler}
       >
         {headerChildren}
       </Header>

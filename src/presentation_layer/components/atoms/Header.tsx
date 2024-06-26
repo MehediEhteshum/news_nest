@@ -8,6 +8,7 @@ type HeaderProps = {
   pageButtons?: ReactNode;
   modeToggle?: ReactNode;
   otherButtons?: ReactNode;
+  navigationHandler?: () => void;
 };
 
 const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
@@ -19,6 +20,7 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   pageButtons,
   modeToggle,
   otherButtons,
+  navigationHandler,
 }) => {
   return (
     <header className={`${backgroundColor} fixed top-0 w-full z-50`}>
@@ -28,10 +30,14 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
             <img
               src={logoSrc}
               alt="Logo"
-              className="w-12 md:w-16 translate-x-3 md:translate-x-0"
+              className="w-12 md:w-16 translate-x-3 md:translate-x-0 cursor-pointer"
+              onClick={navigationHandler}
             />
           )}
-          <span className="md:ml-2 text-lg md:text-xl font-bold">
+          <span
+            className="md:ml-2 text-lg md:text-xl font-bold cursor-pointer"
+            onClick={navigationHandler}
+          >
             {brandName}
           </span>
         </div>

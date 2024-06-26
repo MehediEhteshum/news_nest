@@ -1,8 +1,9 @@
 import { pageTitles, routes } from "@/utils/Constants";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const useRootPageViewModel = () => {
   const route: string = useLocation().pathname;
+  const navigate = useNavigate();
   let pageTitle: string = "";
 
   switch (route) {
@@ -16,5 +17,5 @@ export const useRootPageViewModel = () => {
       break;
   }
 
-  return { pageTitle };
+  return { pageTitle, navigate };
 };

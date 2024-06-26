@@ -5,6 +5,7 @@ import { usePageNavButtons } from "./PageNavButtons.hooks";
 
 const PageNavButtons: React.FC = () => {
   const { route, onClickPageNavButton } = usePageNavButtons();
+  const zoomScale = "hover:scale-110";
 
   return (
     <>
@@ -13,6 +14,7 @@ const PageNavButtons: React.FC = () => {
         size="icon"
         onClick={onClickPageNavButton}
         aria-label={pageNavButtonLabels.home}
+        className={zoomScale}
       >
         <House />
       </Button>
@@ -21,6 +23,7 @@ const PageNavButtons: React.FC = () => {
         size="icon"
         onClick={onClickPageNavButton}
         aria-label={pageNavButtonLabels.newsArchive}
+        className={zoomScale}
       >
         <BookMarked />
       </Button>

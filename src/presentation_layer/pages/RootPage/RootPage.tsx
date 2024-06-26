@@ -10,7 +10,7 @@ import NewsArchive from "../NewsArchive/NewsArchive";
 import { useRootPageViewModel } from "./RootPage.vm";
 
 const RootPage: React.FC = () => {
-  const { pageTitle } = useRootPageViewModel();
+  const { pageTitle, navigate } = useRootPageViewModel();
 
   return (
     <Page
@@ -23,6 +23,7 @@ const RootPage: React.FC = () => {
         <div className="w-10 h-10 bg-blue-500 text-center">login</div>
       }
       logoSrc={logoSrc}
+      headerNavHandler={() => navigate(routes.home)}
       footerCustomText={texts.copyrightText}
       footerCustomCssClasses="p-2 text-center fixed bottom-0 w-full"
     >
