@@ -4,15 +4,21 @@ import {
   CardDescription,
   CardFooter,
   CardTitle,
-} from "../shadcn/ui/card";
+} from "../../shadcn/ui/card";
 import { ArticleEntity } from "@/domain_layer/entities/ArticleEntity";
 import { tagBgColors, themeBgColor } from "@/utils/Constants";
 
-const ArticleCard: React.FC<ArticleEntity> = (article) => {
-  const [imgSrc, setImgSrc] = useState(article.urlToImage);
+type Props = {
+  article: ArticleEntity;
+};
+
+const ArticleCard: React.FC<Props> = ({ article }) => {
+  const [imgSrc, setImgSrc] = useState("dummy");
 
   return (
-    <Card className={`${themeBgColor} relative overflow-visible rounded-2xl`}>
+    <Card
+      className={`${themeBgColor} relative overflow-visible rounded-2xl flex sm:flex-col`}
+    >
       <div className="relative items-center justify-center flex rounded-[inherit]">
         <img
           src={imgSrc ?? "/images/logo.png"}
@@ -35,7 +41,7 @@ const ArticleCard: React.FC<ArticleEntity> = (article) => {
           {article.author}
         </CardDescription>
       </div>
-      <CardFooter className="px-2 pb-2 absolute bottom-0">
+      <CardFooter className="right-0 pr-2 sm:left-0 sm:px-2 pb-2 absolute bottom-0">
         <div
           className={`${
             article.isFree ? tagBgColors.free : tagBgColors.premium
