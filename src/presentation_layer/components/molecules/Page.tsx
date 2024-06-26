@@ -3,7 +3,7 @@ import Header from "../atoms/Header";
 import Content from "../atoms/Content";
 import Footer from "../atoms/Footer";
 
-interface PageProps {
+type PageProps = {
   backgroundColor?: string;
   logoSrc?: string;
   brandName?: string;
@@ -15,7 +15,7 @@ interface PageProps {
   footerChildren?: ReactNode;
   footerCustomText?: string;
   footerCustomCssClasses?: string;
-}
+};
 
 const Page: React.FC<PropsWithChildren<PageProps>> = ({
   children,

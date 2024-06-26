@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react";
 
-interface FooterProps {
+type FooterProps = {
   backgroundColor?: string;
   customText?: string;
   customCssClasses?: string;
-}
+};
 
 const Footer: React.FC<PropsWithChildren<FooterProps>> = ({
   children,

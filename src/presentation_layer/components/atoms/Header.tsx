@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 
-interface HeaderProps {
+type HeaderProps = {
   backgroundColor?: string;
   logoSrc?: string;
   brandName?: string;
@@ -8,7 +8,7 @@ interface HeaderProps {
   pageButtons?: ReactNode;
   modeToggle?: ReactNode;
   otherButtons?: ReactNode;
-}
+};
 
 const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   children,
