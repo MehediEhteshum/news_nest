@@ -21,7 +21,7 @@ const Header: React.FC<PropsWithChildren<HeaderProps>> = ({
   otherButtons,
 }) => {
   return (
-    <header className={`${backgroundColor}`}>
+    <header className={`${backgroundColor} fixed top-0 w-full z-50`}>
       <div className="px-4 py-2 items-center flex justify-between">
         <div className="items-center md:flex">
           {logoSrc && (
