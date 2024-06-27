@@ -1,3 +1,6 @@
+export const articlesPerPage: number = 6;
+export const totalPagesToShow: number = 5;
+
 export const logoSrc: string = "/images/logo.png";
 
 export const texts = {

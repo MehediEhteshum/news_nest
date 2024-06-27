@@ -26,7 +26,7 @@ export class ArticleRepo implements IArticleRepo {
 
     const randomArticles: ArticleApiData[] = this.getRandomArticles(
       uniqueArticles,
-      60
+      64
     );
 
     const articles: ArticleModel[] = randomArticles.map((article) => {

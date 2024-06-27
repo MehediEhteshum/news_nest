@@ -1,5 +1,6 @@
 import { ArticleEntity } from "@/domain_layer/entities/ArticleEntity";
 import { IUseCase } from "@/domain_layer/usecases/core/IUseCase";
+import { articlesPerPage as articlesToShowPerPage } from "@/utils/Constants";
 import { container } from "@/utils/DependencyContainer";
 import { SYMBOLS } from "@/utils/Symbols";
 import { useEffect, useState } from "react";
@@ -9,6 +10,14 @@ export const useNewsHomeViewModel = () => {
   const getRemoteNewsArticlesUseCase = container.get<
     IUseCase<void, ArticleEntity[]>
   >(SYMBOLS.GetRemoteNewsArticlesUseCase);
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const articlesPerPage: number = articlesToShowPerPage;
+  const startIndex = (currentPage - 1) * articlesPerPage;
+  const visibleArticles: ArticleEntity[] = articles.slice(
+    startIndex,
+    startIndex + articlesPerPage
+  );
 
   const getArticles = async () => {
     try {
@@ -27,5 +36,9 @@ export const useNewsHomeViewModel = () => {
 
   return {
     articles,
+    currentPage,
+    setCurrentPage,
+    visibleArticles,
+    articlesPerPage,
   };
 };
