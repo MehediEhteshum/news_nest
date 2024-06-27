@@ -2,12 +2,15 @@ import {
   Pagination,
   PaginationContent,
   PaginationEllipsis,
+  PaginationFirst,
   PaginationItem,
-  PaginationLink,
+  PaginationLast,
   PaginationNext,
   PaginationPrevious,
 } from "../../shadcn/ui/pagination";
 import { useArticlePagination } from "./ArticlePagination.hooks";
+import ArticlePaginationPages from "./ArticlePaginationPages";
+import { cn } from "../../shadcn/lib/utils";
 
 type ArticlePaginationProps = {
   currentPage: number;
@@ -20,31 +23,22 @@ const ArticlePagination: React.FC<ArticlePaginationProps> = ({
   totalPages,
   setCurrentPage,
 }) => {
-  const { showLeftEllipsis, showRightEllipsis, getPageNumbersToDisplay } =
+  const { showLeftEllipsis, showRightEllipsis, pageNumbersToDisplay } =
     useArticlePagination(totalPages, currentPage);
-
-  const renderPaginationItems = () => {
-    const pageNumbersToDisplay: number[] = getPageNumbersToDisplay();
-
-    return pageNumbersToDisplay.map((pageNumber) => (
-      <PaginationItem key={pageNumber}>
-        <PaginationLink
-          isActive={pageNumber === currentPage}
-          onClick={() => setCurrentPage(pageNumber)}
-        >
-          {pageNumber}
-        </PaginationLink>
-      </PaginationItem>
-    ));
-  };
 
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
+          <PaginationFirst
+            onClick={() => setCurrentPage(1)}
+            className={cn(currentPage === 1 ? "hidden" : "cursor-pointer")}
+          />
+        </PaginationItem>
+        <PaginationItem>
           <PaginationPrevious
             onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            aria-hidden={currentPage === 1}
+            className={cn(currentPage === 1 ? "hidden" : "cursor-pointer")}
           />
         </PaginationItem>
         {showLeftEllipsis && (
@@ -52,7 +46,11 @@ const ArticlePagination: React.FC<ArticlePaginationProps> = ({
             <PaginationEllipsis />
           </PaginationItem>
         )}
-        {renderPaginationItems()}
+        <ArticlePaginationPages
+          pageNumbersToDisplay={pageNumbersToDisplay}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
         {showRightEllipsis && (
           <PaginationItem>
             <PaginationEllipsis />
@@ -63,7 +61,17 @@ const ArticlePagination: React.FC<ArticlePaginationProps> = ({
             onClick={() =>
               currentPage < totalPages && setCurrentPage(currentPage + 1)
             }
-            aria-disabled={currentPage === totalPages}
+            className={cn(
+              currentPage === totalPages ? "hidden" : "cursor-pointer"
+            )}
+          />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLast
+            onClick={() => setCurrentPage(totalPages)}
+            className={cn(
+              currentPage === totalPages ? "hidden" : "cursor-pointer"
+            )}
           />
         </PaginationItem>
       </PaginationContent>
