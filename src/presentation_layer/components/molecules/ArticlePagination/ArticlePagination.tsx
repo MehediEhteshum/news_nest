@@ -9,8 +9,7 @@ import {
   PaginationPrevious,
 } from "../../shadcn/ui/pagination";
 import { useArticlePagination } from "./ArticlePagination.hooks";
-import ArticlePaginationPages from "./ArticlePaginationPages";
-import { cn } from "../../shadcn/lib/utils";
+import ArticlePaginationPageNumbers from "./ArticlePaginationPageNumbers";
 
 type ArticlePaginationProps = {
   currentPage: number;
@@ -29,51 +28,59 @@ const ArticlePagination: React.FC<ArticlePaginationProps> = ({
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationFirst
-            onClick={() => setCurrentPage(1)}
-            className={cn(currentPage === 1 ? "hidden" : "cursor-pointer")}
+        <div className="grid grid-cols-5 gap-0 sm:grid-flow-col">
+          {currentPage !== 1 && (
+            <>
+              <PaginationItem>
+                <PaginationFirst
+                  onClick={() => setCurrentPage(1)}
+                  className="cursor-pointer"
+                />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() =>
+                    currentPage > 1 && setCurrentPage(currentPage - 1)
+                  }
+                  className="cursor-pointer"
+                />
+              </PaginationItem>
+            </>
+          )}
+          {showLeftEllipsis && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
+          <ArticlePaginationPageNumbers
+            pageNumbersToDisplay={pageNumbersToDisplay}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationPrevious
-            onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            className={cn(currentPage === 1 ? "hidden" : "cursor-pointer")}
-          />
-        </PaginationItem>
-        {showLeftEllipsis && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
-        <ArticlePaginationPages
-          pageNumbersToDisplay={pageNumbersToDisplay}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-        {showRightEllipsis && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
-        <PaginationItem>
-          <PaginationNext
-            onClick={() =>
-              currentPage < totalPages && setCurrentPage(currentPage + 1)
-            }
-            className={cn(
-              currentPage === totalPages ? "hidden" : "cursor-pointer"
-            )}
-          />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLast
-            onClick={() => setCurrentPage(totalPages)}
-            className={cn(
-              currentPage === totalPages ? "hidden" : "cursor-pointer"
-            )}
-          />
-        </PaginationItem>
+          {showRightEllipsis && (
+            <PaginationItem>
+              <PaginationEllipsis />
+            </PaginationItem>
+          )}
+          {currentPage !== totalPages && (
+            <>
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() =>
+                    currentPage < totalPages && setCurrentPage(currentPage + 1)
+                  }
+                  className="cursor-pointer"
+                />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLast
+                  onClick={() => setCurrentPage(totalPages)}
+                  className="cursor-pointer"
+                />
+              </PaginationItem>
+            </>
+          )}
+        </div>
       </PaginationContent>
     </Pagination>
   );

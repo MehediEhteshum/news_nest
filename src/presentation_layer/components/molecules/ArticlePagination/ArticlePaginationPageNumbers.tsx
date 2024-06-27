@@ -1,16 +1,14 @@
 import { PaginationItem, PaginationLink } from "../../shadcn/ui/pagination";
 
-type ArticlePaginationPagesProps = {
+type ArticlePaginationPageNumbersProps = {
   pageNumbersToDisplay: number[];
   currentPage: number;
   setCurrentPage: (pageNumber: number) => void;
 };
 
-const ArticlePaginationPages: React.FC<ArticlePaginationPagesProps> = ({
-  pageNumbersToDisplay,
-  currentPage,
-  setCurrentPage,
-}) => {
+const ArticlePaginationPageNumbers: React.FC<
+  ArticlePaginationPageNumbersProps
+> = ({ pageNumbersToDisplay, currentPage, setCurrentPage }) => {
   return pageNumbersToDisplay.map((pageNumber) => (
     <PaginationItem key={pageNumber} className="cursor-pointer">
       <PaginationLink
@@ -23,4 +21,4 @@ const ArticlePaginationPages: React.FC<ArticlePaginationPagesProps> = ({
   ));
 };
 
-export default ArticlePaginationPages;
+export default ArticlePaginationPageNumbers;
