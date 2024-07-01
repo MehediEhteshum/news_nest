@@ -1,3 +1,4 @@
+import { ArticlePaginationPageNumbers } from "../..";
 import {
   Pagination,
   PaginationContent,
@@ -9,7 +10,6 @@ import {
   PaginationPrevious,
 } from "../../shadcn/ui/pagination";
 import { useArticlePagination } from "./ArticlePagination.hooks";
-import ArticlePaginationPageNumbers from "./ArticlePaginationPageNumbers";
 
 type ArticlePaginationProps = {
   currentPage: number;

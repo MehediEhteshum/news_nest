@@ -3,8 +3,7 @@ import { Card } from "../../shadcn/ui/card";
 import { ArticleEntity } from "@/domain_layer/entities/ArticleEntity";
 import { themeBgColor } from "@/utils/Constants";
 import { useArticleCard } from "./ArticleCard.hooks";
-import ArticleCardImage from "./ArticleCardImage";
-import ArticleCardBody from "./ArticleCardBody";
+import { ArticleCardBody, ArticleCardImage } from "../..";
 
 type ArticleCardProps = {
   article: ArticleEntity;

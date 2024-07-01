@@ -1,7 +1,5 @@
 import React, { ReactNode, PropsWithChildren } from "react";
-import Header from "../atoms/Header";
-import Content from "../atoms/Content";
-import Footer from "../atoms/Footer";
+import { Content, Footer, Header } from "..";
 
 type PageProps = {
   backgroundColor?: string;

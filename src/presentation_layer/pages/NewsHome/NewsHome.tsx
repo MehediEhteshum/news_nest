@@ -1,7 +1,9 @@
+import {
+  ArticleCard,
+  ArticlePagination,
+  LoaderCircle,
+} from "@/presentation_layer/components";
 import { useNewsHomeViewModel } from "./NewsHome.vm";
-import ArticleCard from "@/presentation_layer/components/molecules/ArticleCard/ArticleCard";
-import LoaderCircle from "@/presentation_layer/components/atoms/LoaderCircle";
-import ArticlePagination from "@/presentation_layer/components/molecules/ArticlePagination/ArticlePagination";
 
 const NewsHome: React.FC = () => {
   const {

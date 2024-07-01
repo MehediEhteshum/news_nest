@@ -1,12 +1,12 @@
-import { ModeToggle } from "@/presentation_layer/components/molecules/ModeToggle";
-import Page from "@/presentation_layer/components/molecules/Page";
-import PageNavButtons from "@/presentation_layer/components/molecules/PageNavButtons/PageNavButtons";
 import { logoSrc, routes, texts, themeBgColor } from "@/utils/Constants";
 import React from "react";
-import NewsHome from "../NewsHome/NewsHome";
 import { Route, Routes } from "react-router-dom";
-import NewsDetail from "../NewsDetail/NewsDetail";
-import NewsArchive from "../NewsArchive/NewsArchive";
+import {
+  ModeToggle,
+  Page,
+  PageNavButtons,
+} from "@/presentation_layer/components";
+import { NewsArchive, NewsDetail, NewsHome } from "..";
 import { useRootPageViewModel } from "./RootPage.vm";
 
 const RootPage: React.FC = () => {
